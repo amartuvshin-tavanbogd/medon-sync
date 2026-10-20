@@ -418,13 +418,13 @@
     btns.forEach(function (b) { b.addEventListener('click', function () { set(b.getAttribute('data-lang')); }); });
   })();
   (function () {
-    var root = document.documentElement, mode = 'dark';
-    try { mode = localStorage.getItem('nd-mode') || 'dark'; } catch (e) {}
+    var root = document.documentElement, mode = 'light';
+    try { mode = localStorage.getItem('nd-mode-v2') || 'light'; } catch (e) {}
     var btns = Array.prototype.slice.call(document.querySelectorAll('.modetoggle button'));
     function apply(m) {
       root.classList.toggle('light', m === 'light');
       btns.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-mode') === m); });
-      try { localStorage.setItem('nd-mode', m); } catch (e) {}
+      try { localStorage.setItem('nd-mode-v2', m); } catch (e) {}
     }
     btns.forEach(function (b) { b.addEventListener('click', function () { apply(b.getAttribute('data-mode')); }); });
     apply(mode);
